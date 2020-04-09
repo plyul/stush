@@ -1,27 +1,25 @@
 language: go
 os: linux
 dist: bionic
-
 go:
-  - "stable"
-
+  - stable
 notifications:
   email:
     recipients:
       - graygolem@gmail.com
     on_success: always
     on_failure: always
-
 install: skip
-
+env:
+  global:
+    secure: tL7tMsUsiW26Pi2kc/ZrOimonRMkn+SvRc9lPkmR+pHwWGQKgBrlPBc3RDs9WhtG23zN4BaO7pf+LGXftSVZX1Nb1yAG5K6K9P62/JcGguv7v0wYwfsP91+JVlBRuwMHmyRPhcGyxmLy4r2yWtrRzzgmdmhtY4HMlZChimWkifkMul3RkSyVM4BM4GkzvRPDuDsiq3RTpeHjvt07pBJQbqn5dop5yJSKmrwW8hu4U/cpLLfTCzkcMw2oXfTUICfSDq+o1/1v3qi4dHgclanKqGivMf5OfaA5ZCg3bDJ1vc1vxCtsScB0Xerz9YDswb5iTssWE8L8sLLqKEftpszMPyVh1NeordbMz9myD3btc8CpgC/WVhJVVCuUqdbMTQC7iDtcWiMjGUuorHojhFeohtBOhpGR8hSP9HUqvsv9yA3hOgUZcH7IeiGTEUy0gV/k8F9dXIucNjWMwO2vfLjt1xpBCJZJB8ZyMlHL1F3SRK9NHY6xIPxoQjQgYehNWSkQgVF7kAwqeNIJVOBWphsmXJ5N3aPlfgmMdPi5WoHhtGUhTccPHSeGSTF3qNlnPjicjHh9GSh6Zf7Z9wf82zXjHOi1h3H5pwsVSGYHy2zek9DbO1u2+6LTY1+/SlEeu514pwb2PXeZJcz81Plb9dZhCplCAUmkxcUUr0zdEDsbVzQ=
 script:
   - go test -v ./...
   - go build -o stush -race stush.go
-
 deploy:
   provider: releases
-  api_key: $GITHUB_TOKEN
-  file: "stush"
+  api_key: "$GITHUB_TOKEN"
+  file: stush
   cleanup: false
   on:
     tags: true
