@@ -1,8 +1,26 @@
 language: go
+os: linux
 
 go:
-  - "1.13"
   - "stable"
+
+notifications:
+  email:
+    recipients:
+      - graygolem@gmail.com
+    on_success: always
+    on_failure: always
+
+install: skip
 
 script:
   - go test -v ./...
+  - go build -o stush -race stush.go
+
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    tags: true
