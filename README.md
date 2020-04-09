@@ -1,5 +1,7 @@
 # SSH & Telnet URL scheme handler for Linux (freedesktop.org compliant)
 
+![Travis CI build status of master](https://api.travis-ci.org/plyul/stush.svg?branch=master)
+
 ## Why?
 
 To be able to run system SSH/Telnet client in a terminal by clicking
